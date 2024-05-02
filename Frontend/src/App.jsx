@@ -2,6 +2,8 @@ import React from 'react'
 import Home from './Home/Home'
 import {Routes,Route} from 'react-router-dom'
 import Courses from './Courses/Courses'
+import Signup from './components/Signup'
+
 
 const App = () => {
   return (
@@ -10,6 +12,7 @@ const App = () => {
       <Routes>
       <Route exact path='/' element={<Home/>}></Route>
         <Route exact path='/course' element={<Courses/>}></Route>
+        <Route exact path='/signup' element={<Signup/>}></Route>
       </Routes>
       </div>
     </>
