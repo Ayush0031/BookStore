@@ -45,7 +45,7 @@ function Signup() {
                         <p className='text-xl'>
                             Have Account?
                             <button onClick={()=>{document.getElementById("my_modal_3").showModal()}} 
-                            className='underline cursor-pointer text-blue-500' > Login </button>
+                            className='underline cursor-pointer text-blue-500' >Login</button>
                             <Login/>
                             </p>
                     </div>
