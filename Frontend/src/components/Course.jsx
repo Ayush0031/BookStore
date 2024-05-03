@@ -16,7 +16,7 @@ function Course() {
     </div>
      <div className='mt-12 grid grid-cols-1 md:grid-cols-4'>
         {
-            list.map((data)=> (<Card item={data}/>))
+            list.map((data)=> (<Card item={data} key={data.id}/>))
         }
      </div>
     </>
