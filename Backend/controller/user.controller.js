@@ -1,5 +1,6 @@
 import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
+
 export const signup=async (req,res)=>{
       try {
        const {name,email,password}=req.body;
@@ -16,7 +17,11 @@ export const signup=async (req,res)=>{
         password:hashedPassword
        })
       await createdUser.save();
-       res.status(201).json({message:"User created Successfully"})
+       res.status(201).json({message:"User created Successfully",user:{
+                _id:createdUser._id,
+                name:createdUser.name,
+                email:createdUser.email
+       }})
       } catch (error) {
         console.log("Error----------",error)
         res.status(500).json({message:"Internal server error"})
