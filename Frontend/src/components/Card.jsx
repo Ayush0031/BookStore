@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Card(props) {
+    console.log("price______"+props.item.price)
     return (
         <>
             <div className='mt-4 my-3 p-3'>

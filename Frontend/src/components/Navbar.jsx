@@ -60,7 +60,8 @@ function Navbar() {
                                 {navItems}
                             </ul>
                         </div>
-                        <Link className=" text-2xl font-bold">bookStore</Link>
+                        <h2 className=" text-2xl font-bold">bookStore </h2>
+                        <img src='vite.svg' /> 
                     </div>
 
                     <div className="navbar-end space-x-3">

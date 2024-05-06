@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "title": "Adventure Book",
+        "name": "The Lost Treasure",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1579546927550-25983b38e009"
+        },
+        {
+        "id": 2,
+        "title": "Science Book",
+        "name": "Exploring the Cosmos",
+        "price": "Rs. 14.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1562184556-3d538d58d89e"
+        },
+        {
+        "id": 3,
+        "title": "Romance Book",
+        "name": "Love in Paris",
+        "price": "Rs. 9.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1585050255406-fb3a7a9faa8d"
+        },
+        {
+        "id": 4,
+        "title": "Mystery Book",
+        "name": "The Haunted Mansion",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1579546927550-25983b38e009"
+        },
+        {
+        "id": 5,
+        "title": "History Book",
+        "name": "Ancient Civilizations: A Journey Through Time",
+        "price": "Rs. 16.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1521737711867-ce0a3845fa01"
+        },
+        {
+        "id": 6,
+        "title": "Cookbook",
+        "name": "Mastering the Culinary Arts",
+        "price": "Rs. 19.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1536516620520-0a44e64621b2"
+        },
+        {
+        "id": 7,
+        "title": "Fantasy Book",
+        "name": "The Chronicles of Eldoria",
+        "price": "Rs. 12.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1544816155-09460e1553e0"
+        },
+        {
+        "id": 8,
+        "title": "Self-Help Book",
+        "name": "The Power of Positive Thinking",
+        "price": "Rs. 8.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+        },
+        {
+        "id": 9,
+        "title": "Thriller Book",
+        "name": "The Silent Witness",
+        "price": "Rs. 11.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1580489944767-713f0fa27b88"
+        },
+        {
+        "id": 10,
+        "title": "Biography Book",
+        "name": "Life of a Visionary",
+        "price": "Rs. 15.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1580491122249-8c819f17f9b1"
+        },
+        {
+        "id": 11,
+        "title": "Science Fiction Book",
+        "name": "Galactic Conquest",
+        "price": "Rs. 14.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1580496184766-d1585aae4c08"
+        },
+        {
+        "id": 12,
+        "title": "Travel Book",
+        "name": "Wanderlust Chronicles",
+        "price": "Rs. 13.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1580496957219-e8d3b5d10a1f"
+        },
+        {
+        "id": 13,
+        "title": "Art Book",
+        "name": "Brushstrokes of Life",
+        "price": "Rs. 10.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1541339907198-e08756dede63"
+        },
+        {
+        "id": 14,
+        "title": "Poetry Book",
+        "name": "Whispers of the Soul",
+        "price": "Rs. 7.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1541807088-b2083c08f8fb"
+        },
+        {
+        "id": 15,
+        "title": "Fantasy Book",
+        "name": "The Secret Forest",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1549309411-0d8bfa965c6a"
+        },
+        {
+        "id": 16,
+        "title": "Self-Help Book",
+        "name": "The Path to Happiness",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1519413499880-5ca14f2733af"
+        },
+        {
+        "id": 17,
+        "title": "Mystery Book",
+        "name": "The Enigma of Elm Street",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1542329682-44d77e1f3b31"
+        },
+        {
+        "id": 18,
+        "title": "History Book",
+        "name": "Echoes of the Past",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1541816641-1e71206a2e1a"
+        },
+        {
+        "id": 19,
+        "title": "Adventure Book",
+        "name": "The Journey Beyond",
+        "price": 0,
+        "category": "Free",
+        "image": "https://images.unsplash.com/photo-1584680322594-57e42a560b2d"
+        },
+        {
+        "id": 20,
+        "title": "Science Book",
+        "name": "The Quantum World",
+        "price": "Rs. 12.99",
+        "category": "Paid",
+        "image": "https://images.unsplash.com/photo-1594579988375-9e55b5d7fe59"
+        }
+    ]
