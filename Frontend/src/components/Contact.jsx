@@ -3,7 +3,8 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import { useForm } from "react-hook-form"
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
+import toast from 'react-hot-toast';
 function Contact() {
   const {
     register,
@@ -11,7 +12,22 @@ function Contact() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    const contactData={
+      name:data.name,
+      email:data.email,
+      message:data.message
+    }
+    await axios.post("http://localhost:4001/contact/",contactData)
+    .then((res)=>{
+      if(res.data){
+        toast.success("Message sent Successfully")
+      }
+      toast.failure("Not able to send message")
+    }).catch((err)=>{
+      toast.error("Error"+err.message)
+    })
+  }
   return (
     <>
       <Navbar/>
