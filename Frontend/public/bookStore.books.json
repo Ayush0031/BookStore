@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8033"
+  },
+  "id": 1,
+  "title": "Adventure Book",
+  "name": "The Missing Heirloom",
+  "price": 0,
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8034"
+  },
+  "id": 2,
+  "title": "Science Book",
+  "name": "The Universe Explained",
+  "price": "Rs. 14.99",
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778setw=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8035"
+  },
+  "id": 3,
+  "title": "Romance Book",
+  "name": "The Missing Oarsmen",
+  "price": "Rs. 9.99",
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8036"
+  },
+  "id": 4,
+  "title": "Mystery Book",
+  "name": "The Missing Heirloom",
+  "price": 0,
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8037"
+  },
+  "id": 5,
+  "title": "History Book",
+  "name": "The Ancient Civilizations",
+  "price": "Rs. 16.99",
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8038"
+  },
+  "id": 6,
+  "title": "Cookbook",
+  "name": "The Art of Cooking Food",
+  "price": "Rs. 19.99",
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8039"
+  },
+  "id": 8,
+  "title": "Fantasy Book",
+  "name": "The Chronicles of Eldoria",
+  "price": "Rs. 12.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803a"
+  },
+  "id": 9,
+  "title": "Self-Help Book",
+  "name": "Finding Inner Peace",
+  "price": "Rs. 8.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803b"
+  },
+  "id": 10,
+  "title": "Thriller Book",
+  "name": "The Silent Observer",
+  "price": "Rs. 11.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803c"
+  },
+  "id": 11,
+  "title": "Biography Book",
+  "name": "Journey of a Maverick",
+  "price": "Rs. 15.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803d"
+  },
+  "id": 12,
+  "title": "Science Fiction Book",
+  "name": "Galactic Conquest",
+  "price": "Rs. 14.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803e"
+  },
+  "id": 13,
+  "title": "Travel Book",
+  "name": "Wanderlust Chronicles",
+  "price": "Rs. 13.99",
+  "category": "Free",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc803f"
+  },
+  "id": 14,
+  "title": "Art Book",
+  "name": "Brushstrokes of Life",
+  "price": "Rs. 10.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+},
+{
+  "_id": {
+    "$oid": "6638ae2b7fa89fa2aabc8040"
+  },
+  "id": 15,
+  "title": "Poetry Book",
+  "name": "Whispers of the Soul",
+  "price": "Rs. 7.99",
+  "category": "Paid",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?name=st=1714588886~exp=1714592486~hmac=fa111ac19e547c0786a255f0808f8286001163aab0965a547fa9721058676778&w=740"
+}]
