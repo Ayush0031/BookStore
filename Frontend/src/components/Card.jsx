@@ -1,5 +1,6 @@
 import React from 'react'
-
+import BuyModal from './BuyModal'
+import { Link} from 'react-router-dom';
 function Card(props) {
     console.log("price______"+props.item.price)
     return (
@@ -15,7 +16,10 @@ function Card(props) {
                         <p>{props.item.title}</p>
                         <div className="card-actions  justify-between">
                             <div className="">{props.item.price}</div>
-                            <div className="cursor-pointer px-2 py-1 rounded-full border-[2px] hover:bg-pink-500 hover:text-white duration-200">Buy Now</div>
+                            <Link className="cursor-pointer px-2 py-1 rounded-full 
+                            border-[2px] hover:bg-pink-500 hover:text-white duration-200" onClick={() => 
+                             { document.getElementById("my_modal_buy").showModal() }}>Buy Now</Link>
+                            <BuyModal />
                         </div>
                     </div>
                 </div>
