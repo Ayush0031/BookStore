@@ -4,7 +4,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 function Course() {
     const [book,setBook]=useState([])
+    
     useEffect(()=>{
+     
         const getBook= async ()=>{
             try {
              const res= await axios.get("http://localHost:4001/book")

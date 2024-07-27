@@ -4,6 +4,8 @@ import mongoose from 'mongoose'
 import bookRoute from './routes/book.route.js'
 import userRoute from './routes/user.route.js'
 import contactRoute from './routes/contact.route.js'
+import cartRoute from './routes/cart.route.js'
+import orderRoute from './routes/order.route.js'
 import cors from 'cors'
 const app = express()
 
@@ -29,6 +31,8 @@ app.get('/', (req, res) => {
 app.use("/book",bookRoute);
 app.use("/user",userRoute);
 app.use("/contact",contactRoute);
+app.use("/cart",cartRoute);
+app.use("/order",orderRoute)
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`)
 })

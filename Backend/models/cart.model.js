@@ -1,17 +1,18 @@
 import mongoose, { mongo } from "mongoose";
+import Book from "./book.model.js";
 
 
 const cartSchema = mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Users',
     required: true,
   },
   items: [
     {
       bookId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book',
+        ref: 'books',
         required: true,
       },
       quantity: {

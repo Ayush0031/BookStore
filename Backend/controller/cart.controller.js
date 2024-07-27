@@ -1,5 +1,5 @@
-import Book from "../models/book.model";
-import Cart from "../models/cart.model";
+import Book from "../models/book.model.js";
+import Cart from "../models/cart.model.js";
 
 const addToCart= async(req,res)=>{
     const {userId,bookId,quantity}=req.body;
@@ -9,8 +9,7 @@ const addToCart= async(req,res)=>{
             cart=new Cart({userId,items:[]});
         }
 
-        const book = await Book.findById({bookId});
-
+        const book = await Book.findById(bookId);
         if(!book){
             res.status(404).json({message:"Book Not Found"})
         }
