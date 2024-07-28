@@ -36,7 +36,7 @@ const fetchCart= async(req,res)=>{
         try {
             const cart= await Cart.findOne({userId}).populate('items.bookId')
             if(!cart){
-                res.status(404).json({message:"Cart Not Found"})
+               return  res.status(404).json({message:"Cart Not Found"})
             }
             res.status(200).json(cart)
         } catch (error) {
