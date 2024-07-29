@@ -1,7 +1,8 @@
 import express from 'express'
-import { createOrder, viewOrder } from '../controller/order.controller.js';
+import { createOrder, createPaymentIntent, viewOrder } from '../controller/order.controller.js';
 
 const router=express.Router()
 router.post("/create",createOrder)
+router.post("/payment-intents",createPaymentIntent)
 router.get("/view",viewOrder)
 export default router;

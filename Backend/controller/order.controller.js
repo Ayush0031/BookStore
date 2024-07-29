@@ -1,47 +1,78 @@
 import Cart from "../models/cart.model.js";
 import Order from "../models/order.model.js";
-import Stripe from 'stripe'
-const createOrder = async(req,res)=>{
+import Stripe from 'stripe';
+const createPaymentIntent = async (req, res) => {
+    const { userId, address } = req.body;
     const stripe=new Stripe(process.env.STRIPE_SECRET_KEY)
-    const{userId,address,stripeToken}=req.body;
     try {
-        const cart = await Cart.findOne({userId}).populate('items.bookId');
-        if(!cart){
-            res.status(404).json({message:"Cart not found"});
+        const cart = await Cart.findOne({ userId }).populate('items.bookId');
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
         }
-        const items= cart.items.map(item=>({
-            bookId:item.bookId._id,
-            quantity:item.quantity,
-            price:item.bookId.price
 
-        }))
-        const totalPrice = items.reduce((sum,item)=>sum+item.price*item.quantity,0)
-        const charge = await stripe.charges.create({
+        const items = cart.items.map(item => ({
+            bookId: item.bookId._id,
+            quantity: item.quantity,
+            price: item.bookId.price
+        }));
+
+        const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        // Create a Payment Intent
+        const paymentIntent = await stripe.paymentIntents.create({
             amount: totalPrice * 100, // Stripe amounts are in cents
             currency: 'usd',
-            source: stripeToken,
-            description: `Order for ${userId}`
+            description: `Order for ${userId}`,
         });
 
-        if(!charge){
-            return res.status(500).json({message:"Payment Failed"});
+        res.status(200).json({ clientSecret: paymentIntent.client_secret });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const createOrder = async (req, res) => {
+    const { userId, address, paymentIntentId } = req.body;
+    const stripe=new Stripe(process.env.STRIPE_SECRET_KEY)
+    try {
+        const cart = await Cart.findOne({ userId }).populate('items.bookId');
+        if (!cart) {
+            return res.status(404).json({ message: 'Cart not found' });
         }
 
-        const newOrder= new Order({
+        const items = cart.items.map(item => ({
+            bookId: item.bookId._id,
+            quantity: item.quantity,
+            price: item.bookId.price
+        }));
+
+        const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        // Confirm the Payment Intent
+        const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+        if (paymentIntent.status !== 'succeeded') {
+            return res.status(400).json({ message: 'Payment not successful' });
+        }
+
+        const newOrder = new Order({
             userId,
             items,
             totalPrice,
             address,
-            status:paid
-        })
+            status: 'Paid'
+        });
+
         await newOrder.save();
-        cart.items=[];
+
+        // Clear the cart
+        cart.items = [];
         await cart.save();
+
         res.status(201).json(newOrder);
     } catch (error) {
-        res.status(500).json({message:error.message})
+        res.status(500).json({ message: error.message });
     }
-}
+};
 
 const viewOrder = async(req,res)=>{
         const{userId}=req.body;
@@ -58,4 +89,4 @@ const viewOrder = async(req,res)=>{
 
    
 }
-export {createOrder,viewOrder}
+export {createPaymentIntent,createOrder,viewOrder}

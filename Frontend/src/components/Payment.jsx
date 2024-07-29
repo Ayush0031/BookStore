@@ -1,5 +1,4 @@
-// components/Checkout.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -10,19 +9,43 @@ const stripePromise = loadStripe('pk_test_51PduUnEasZfaFgfChWIk7KUqWzbu3tecD0TnP
 const CheckoutForm = ({ userId, address }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const [clientSecret, setClientSecret] = useState('');
+
+    useEffect(() => {
+        const createPaymentIntent = async () => {
+            try {
+                const response = await axios.post('http://localhost:4001/order/payment-intents', { userId, address });
+                setClientSecret(response.data.clientSecret);
+            } catch (error) {
+                console.error('Error creating payment intent:', error);
+            }
+        };
+
+        createPaymentIntent();
+    }, [userId, address]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const cardElement = elements.getElement(CardElement);
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card: cardElement,
-        });
-
+        const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+              card: cardElement,
+              billing_details: {
+                  address: {
+                      line1: address.street,
+                      city: address.city,
+                      state: address.state,
+                      postal_code: address.zip,
+                      country: address.country
+                  }
+              }
+          }
+      });
         if (error) {
             console.error(error);
+            alert('Payment failed: ' + error.message);
             return;
         }
 
@@ -30,23 +53,24 @@ const CheckoutForm = ({ userId, address }) => {
             const response = await axios.post('http://localhost:4001/order/create', {
                 userId,
                 address,
-                stripeToken: paymentMethod.id
+                paymentIntentId: paymentIntent.id,
             });
 
             if (response.status === 201) {
                 alert('Order placed successfully');
+            } else {
+                console.error('Order creation failed with status:', response.status);
             }
         } catch (error) {
             console.error('Error creating order:', error);
-            alert('Failed to place order'+error.message);
+            alert('Failed to place order: ' + error.message);
         }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <CardElement />
-            
-            <button type="submit" disabled={!stripe}>Place Order</button>
+            <button type="submit" disabled={!stripe || !clientSecret}>Place Order</button>
         </form>
     );
 };
