@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -21,5 +20,6 @@
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
     "stripe": "^16.5.0"
-  }
+  },
+  "description": ""
 }

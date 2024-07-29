@@ -38,7 +38,7 @@ function Cart() {
       setTotalAmount(total);
     }
 
-  }, [])
+  }, [cartIsEmpty])
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }
