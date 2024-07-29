@@ -15,6 +15,7 @@ function Cart() {
           console.log(res.data.items)
           setCartIsEmpty(false)
           setCart(res.data)
+         
         })
         .catch(err => {
           console.log(err.response.data.message)
@@ -28,19 +29,19 @@ function Cart() {
   }
   useEffect(() => {
     fetchCartItems();
-    
+    if(cart != null){
+      let total = 0;
+      cart.items.forEach(item => {
+        total += item.bookId.price * item.quantity
+      })
+      setTotalAmount(total);
+    }
 
-  }, [])
+  }, [cart])
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }
-  if(cart != null){
-    let total = 0;
-    cart.items.forEach(item => {
-      total += item.bookId.price * item.quantity
-    })
-    setTotalAmount(total);
-  }
+  
   return (
     <>
       <div>
@@ -50,7 +51,8 @@ function Cart() {
         <div className=' pt-24  container mx-auto md:px-2 px-4'>
           
             <h1 className='text-pink-500 text-2xl md:inline-flex' >Shopping Cart</h1>
-            {totalAmount}
+            
+            <h1>{totalAmount}</h1>
             <Link className='bg-pink-500 rounded-full px-2 mt-1 md:mx-40
            text-white hover:bg-red-600' to='/payment'>Checkout</Link>
           
