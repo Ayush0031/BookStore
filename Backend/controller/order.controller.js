@@ -15,7 +15,7 @@ const createOrder = async(req,res)=>{
             price:item.bookId.price
 
         }))
-        const totalPrice = items.reduce((sum,item)=>sum+item.price*item*quantity,0)
+        const totalPrice = items.reduce((sum,item)=>sum+item.price*item.quantity,0)
         const charge = await stripe.charges.create({
             amount: totalPrice * 100, // Stripe amounts are in cents
             currency: 'usd',

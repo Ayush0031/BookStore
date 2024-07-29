@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 function Cart() {
   const [cart, setCart] = useState(null);
   const [cartIsEmpty, setCartIsEmpty] = useState("false");
@@ -12,7 +13,7 @@ function Cart() {
     if (user) {
       await axios.get(`http://localhost:4001/cart/${user._id}`)
         .then(res => {
-          console.log(res.data.items)
+          
           setCartIsEmpty(false)
           setCart(res.data)
          
@@ -44,11 +45,10 @@ function Cart() {
   
   return (
     <>
-      <div>
         <Navbar />
-      </div>
+      
       <div>
-        <div className=' pt-24  container mx-auto md:px-2 px-4'>
+        <div className='  pt-24  container mx-auto md:px-2 px-4'>
           
             <h1 className='text-pink-500 text-2xl md:inline-flex' >Shopping Cart</h1>
             
@@ -71,6 +71,10 @@ function Cart() {
         </div>
 
       </div>
+      <div className='flex flex-col h-screen justify-end'>
+      <Footer/>
+      </div>
+      
     </>
   )
 }
