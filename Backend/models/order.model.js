@@ -5,11 +5,11 @@ import Book from "./book.model.js";
 const orderSchema=mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'User',
+        ref:'users',
         required:true
     },
     items: [{
-        bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
+        bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'books', required: true },
         quantity: { type: Number, required: true },
         price: { type: Number, required: true }
     }],

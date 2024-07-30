@@ -64,7 +64,7 @@ function Cart() {
                 key={item.bookId._id} style={{ maxWidth: '35rem' }}
                 className="card m-4 bg-base-100 shadow-xl hover:scale-105 duration-200 dark:bg-slate-900 dark:text-white dark:border "
               >
-                <img src={item.bookId.image} className="w-24 h-24" alt={item.bookId.name} />
+                <img src={item.bookId.image} className="px-4 w-24 h-24" alt={item.bookId.name} />
                 <p>{item.bookId.name} - {item.bookId.price*item.quantity}</p>
               </div>
               ))}

@@ -75,7 +75,7 @@ const createOrder = async (req, res) => {
 };
 
 const viewOrder = async(req,res)=>{
-        const{userId}=req.body;
+        const{userId}=req.params;
         try {
             const order=await Order.find({userId}).populate('items.bookId');
 

@@ -4,5 +4,5 @@ import { createOrder, createPaymentIntent, viewOrder } from '../controller/order
 const router=express.Router()
 router.post("/create",createOrder)
 router.post("/payment-intents",createPaymentIntent)
-router.get("/view",viewOrder)
+router.get("/view/:userId",viewOrder)
 export default router;

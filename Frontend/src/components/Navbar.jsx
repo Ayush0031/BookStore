@@ -40,10 +40,11 @@ function Navbar() {
     }, [])
     const navItems = (
         <>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/course'>Course</Link></li>
-            <li><Link to='/contact'>Contact</Link></li>
-            <li><Link>About</Link></li>
+            <li><Link className=' dark:bg-slate-900 dark:text-white' to='/'>Home</Link></li>
+            <li><Link className=' dark:bg-slate-900 dark:text-white' to='/course'>Course</Link></li>
+            <li><Link className=' dark:bg-slate-900 dark:text-white' to='/myOrders'>MyOrders</Link></li>
+            <li><Link className=' dark:bg-slate-900 dark:text-white' to='/contact'>Contact</Link></li>
+            <li><Link className=' dark:bg-slate-900 dark:text-white'>About</Link></li>
         </>
     );
     return (

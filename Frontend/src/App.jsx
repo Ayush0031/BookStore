@@ -8,6 +8,7 @@ import  { Toaster } from 'react-hot-toast';
 import { useAuth } from './context/AuthProvider'
 import Cart from './components/Cart.jsx'
 import Payment from './components/Payment.jsx'
+import MyOrders from './components/MyOrders.jsx'
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path='/contact' element={<Contact/>}></Route>
         <Route exact path='/cart' element={<Cart/>}></Route>
         <Route exact path='/payment' element={<Payment/>}></Route>
+        <Route exact path='/myorders' element={<MyOrders/>}></Route>
       </Routes>
       <Toaster />
       </div>
