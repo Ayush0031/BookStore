@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
 import toast from 'react-hot-toast';
+
 function Card(props) {
     const[authUser,setAuthUser]=useAuth();
     const user=JSON.parse(localStorage.getItem("Users"))
@@ -17,6 +18,7 @@ function Card(props) {
             quantity
 
         }).then(response=>{
+            
             toast.success('"Book Added to Cart Successfully!!'+user.name);
         }).catch(err=>{
             toast.error("Error : " + err.response.data.message+user);
@@ -33,7 +35,7 @@ function Card(props) {
                             {props.item.name} 
                             <div className="badge badge-secondary">{props.item.category}</div>
                         </h2>
-                        <p>{props.item.title}{props.item._id}</p>
+                        <p>{props.item.title}</p>
                         <div className="card-actions  justify-between">
                             <div className="">{props.item.price}</div>
                             {
