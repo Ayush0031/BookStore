@@ -53,7 +53,7 @@ function Cart() {
           <h1 className='text-pink-500 md:text-center text-2xl md:text-5xl ' >Shopping Cart</h1>
 
           <h1 className=' mt-2 text-green-500 md:text-2xl md:inline-flex' >Total Cart Value ${totalAmount}</h1>
-          <Link className='mt-2 bg-pink-500 rounded-full px-2 mt-1 md:mx-40
+          <Link className=' bg-pink-500 rounded-full px-2 mt-1 md:mx-40
            text-white hover:bg-red-600' to='/payment'>Checkout</Link>
 
 
