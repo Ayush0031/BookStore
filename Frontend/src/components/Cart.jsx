@@ -9,7 +9,7 @@ function Cart() {
   const [cartIsEmpty, setCartIsEmpty] = useState("false");
   const [totalAmount, setTotalAmount] = useState(0);
   const user = JSON.parse(localStorage.getItem("Users"))
-  const {setCartCount}=useCartContext();
+  const {cartCount,setCartCount}=useCartContext();
   const fetchCartItems = async () => {
     if (user) {
       await axios.get(`http://localhost:4001/cart/${user._id}`)
@@ -38,7 +38,7 @@ function Cart() {
       setTotalAmount(total);
     }
 
-  }, [cartIsEmpty])
+  }, [cartIsEmpty,cartCount])
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }

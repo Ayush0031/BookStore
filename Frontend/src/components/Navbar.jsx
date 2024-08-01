@@ -10,7 +10,7 @@ function Navbar() {
     const [authUser, setAuthUser] = useAuth()
     const [sticky, setSticky] = useState(false);
     const navigate = useNavigate();
-    const {cartCount}=useCartContext();
+    const {cartCount,setCartCount}=useCartContext();
     const [theme, setTheme] =
         useState(
             localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");

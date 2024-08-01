@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BuyModal from './BuyModal'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
 import toast from 'react-hot-toast';
+import { useCartContext } from '../context/CartProvider';
 
 function Card(props) {
     const[authUser,setAuthUser]=useAuth();
     const user=JSON.parse(localStorage.getItem("Users"))
-    
+    const {cartCount,setCartCount}=useCartContext();
     const userId= authUser ? user._id :"null";
     const handleAddToCart = async () => {
         const quantity=1
@@ -20,11 +21,20 @@ function Card(props) {
         }).then(response=>{
             
             toast.success('"Book Added to Cart Successfully!!'+user.name);
+            
+        }).catch(err=>{
+            toast.error("Error : " + err.response.data.message+user);
+            console.error(err)
+        })
+        await axios.get(`http://localhost:4001/cart/${user._id}`)
+        .then(res => {
+          setCartCount(res.data.items.length);
         }).catch(err=>{
             toast.error("Error : " + err.response.data.message+user);
             console.error(err)
         })
     }
+    
     return (
         <>
             <div className='mt-4 my-3 p-3'>

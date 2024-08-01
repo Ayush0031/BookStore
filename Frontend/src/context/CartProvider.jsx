@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { Children, useContext, useEffect, useState } from 'react'
 import { createContext } from 'react'
+
 export const CartContext=createContext();
+
 function CartProvider({children}) {
     const [cartCount,setCartCount]=useState(0);
     const user = JSON.parse(localStorage.getItem("Users"))
