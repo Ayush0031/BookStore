@@ -48,7 +48,7 @@ function Cart() {
       <Navbar />
 
       <div>
-        <div className='  pt-24  container mx-auto md:px-2 px-4'>
+        <div className='  pt-20  container mx-auto md:px-2 px-4'>
 
           <h1 className='text-pink-500 md:text-center text-2xl md:text-5xl ' >Shopping Cart</h1>
 

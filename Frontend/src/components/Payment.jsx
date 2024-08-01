@@ -60,7 +60,9 @@ const CheckoutForm = ({ userId, address }) => {
                         country: address.country
                     }
                 }
-            }
+            },
+            
+           
         });
         if (error) {
             console.error(error);
@@ -77,6 +79,11 @@ const CheckoutForm = ({ userId, address }) => {
 
             if (response.status === 201) {
                 alert('Order placed successfully');
+                console.log(response)
+                setTimeout(()=>{
+                    window.location.href = `http://localhost:5173/success?orderId=${response.data._id}`;
+                },2000)
+                
             } else {
                 console.error('Order creation failed with status:', response.status);
             }

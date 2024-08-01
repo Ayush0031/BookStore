@@ -29,7 +29,7 @@ function MyOrders() {
             <div>
                 <Navbar />
             </div>
-            <div className='pt-28'>
+            <div className='pt-20'>
                 <h1 className='text-pink-500 md:text-center text-2xl md:text-5xl ' >My Orders</h1>
                 {
                     orders ? orders.map((order) => (
