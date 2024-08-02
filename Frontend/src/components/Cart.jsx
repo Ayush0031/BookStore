@@ -8,8 +8,9 @@ function Cart() {
   const [cart, setCart] = useState(null);
   const [cartIsEmpty, setCartIsEmpty] = useState("false");
   const [totalAmount, setTotalAmount] = useState(0);
+ 
   const user = JSON.parse(localStorage.getItem("Users"))
-  const {cartCount,setCartCount}=useCartContext();
+  const { cartCount, setCartCount } = useCartContext();
   const fetchCartItems = async () => {
     if (user) {
       await axios.get(`http://localhost:4001/cart/${user._id}`)
@@ -38,7 +39,7 @@ function Cart() {
       setTotalAmount(total);
     }
 
-  }, [cartIsEmpty,cartCount])
+  }, [cartIsEmpty, cartCount])
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }
@@ -69,11 +70,25 @@ function Cart() {
                       <img src={item.bookId.image} className="w-full h-full object-cover p-2 rounded-md" alt={item.bookId.name} />
                     </div>
                     <div className='p-2 md:text-lg'>
-                    <p>{item.bookId.name}</p>
-                    <p>{item.bookId.title}</p>
-                    <p>${item.bookId.price}</p>
+                      <p>{item.bookId.name}</p>
+                      <p>{item.bookId.title}</p>
+                      <p>${item.bookId.price}</p>
+                     
                     </div>
-                    
+                    <div className='flex'>
+                      <select
+                        className=" rounded " onChange={(e) => { setQty(e.target.value) }}
+                      >
+                        <option> {item.quantity}</option>
+                        {Array.from(Array(6), (e, i) => {
+                          return (
+                            <option key={i + 1} value={i + 1}>
+                              {i + 1}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
                   </div>
 
 
