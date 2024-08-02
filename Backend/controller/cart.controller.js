@@ -31,6 +31,25 @@ const addToCart= async(req,res)=>{
     }
 
 }
+const deleteCartItem=async(req,res)=>{
+    try {
+        const {userId,itemId}=req.body;
+    let cart=await Cart.findOne({userId});
+    if(!cart){
+        return res.status(404).json({message:"cart not found"})
+    }
+    cart.items= cart.items.filter(item=>!item._id.equals(itemId))
+
+    cart.updatedAt=Date.now();
+        await cart.save();
+        
+        res.status(200).json(cart)
+    } catch (error) {
+        res.status(500).json({message:error.message})
+    }
+    
+
+}
 const fetchCart= async(req,res)=>{
         const{userId}=req.params;
         try {
@@ -43,4 +62,4 @@ const fetchCart= async(req,res)=>{
             res.status(500).json({message:error.message})
         }
 }
-export {addToCart,fetchCart}
+export {addToCart,fetchCart,deleteCartItem}

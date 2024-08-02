@@ -4,12 +4,15 @@ import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import { useCartContext } from '../context/CartProvider';
+import { FaTrash } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 function Cart() {
   const [cart, setCart] = useState(null);
   const [cartIsEmpty, setCartIsEmpty] = useState("false");
   const [totalAmount, setTotalAmount] = useState(0);
  
   const user = JSON.parse(localStorage.getItem("Users"))
+  const userId=user._id;
   const { cartCount, setCartCount } = useCartContext();
   const fetchCartItems = async () => {
     if (user) {
@@ -43,6 +46,17 @@ function Cart() {
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }
+  const deleteCartItem=async(id)=>{
+    await axios.post("http://localhost:4001/cart/deleteitem",{
+      userId,
+      itemId:id,
+    }).then(res=>{
+      toast.success("Item deleted successfully !");
+    }).catch(err=>{
+      toast.error("Not able to delete item !");
+    })
+    fetchCartItems();
+  }
 
   return (
     <>
@@ -75,11 +89,11 @@ function Cart() {
                       <p>${item.bookId.price}</p>
                      
                     </div>
-                    <div className='flex'>
+                    <div className='m-5'>
                       <select
-                        className=" rounded " onChange={(e) => { setQty(e.target.value) }}
+                        className=" dark:bg-slate-900 dark:text-white dark:border rounded" style={{width:"100px",height:"35px"}} onChange={(e) => { setQty(e.target.value) }}
                       >
-                        <option> {item.quantity}</option>
+                        <option > {item.quantity}</option>
                         {Array.from(Array(6), (e, i) => {
                           return (
                             <option key={i + 1} value={i + 1}>
@@ -88,6 +102,9 @@ function Cart() {
                           );
                         })}
                       </select>
+                    </div>
+                    <div className='m-6'>
+                        <FaTrash onClick={()=>deleteCartItem(item._id)}/>
                     </div>
                   </div>
 
