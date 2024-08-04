@@ -27,7 +27,7 @@ function MyOrders() {
     };
 
     const downloadReceipt = (orderId) => {
-        window.location.href = `http://localhost:4001/order/receipt/${orderId}`;
+        window.location.href = `http://localhost:4001/order/receipt/${orderId}?download=true`;
     };
 
     return (

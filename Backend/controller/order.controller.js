@@ -97,6 +97,7 @@ const viewOrder = async(req,res)=>{
 const generateReceipt=async(req,res)=>{
     try {
         const _id = req.params.orderId;
+        const download = req.query.download === 'true';
         console.log(`Generating receipt for order ID: ${_id}`);
     
         const order = await Order.findById(_id);
@@ -106,7 +107,11 @@ const generateReceipt=async(req,res)=>{
           return res.status(404).json({ message: 'Order not found' });
         }
         res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', `attachment; filename="receipt-${_id}.pdf"`);
+        if (download) {
+            res.setHeader('Content-Disposition', `attachment; filename="receipt-${_id}.pdf"`);
+          } else {
+            res.setHeader('Content-Disposition', `inline; filename="receipt-${_id}.pdf"`);
+          }
         const doc = new PDFDocument();
         doc.pipe(res);
         doc.fontSize(40).text('The bookStore', { align: 'center',color:"pink-500" });

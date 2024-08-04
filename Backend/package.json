@@ -22,5 +22,6 @@
     "pdfkit": "^0.15.0",
     "stripe": "^16.5.0"
   },
+  "devDependencies": {},
   "description": ""
 }
