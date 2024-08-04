@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import axios from 'axios';
 import { useAuth } from '../context/AuthProvider';
-
+import PdfIcon from '../../public/pdficon.svg';
 function MyOrders() {
     const [orders, setOrder] = useState(null);
     const [authUser, setAuthUser] = useAuth();
@@ -46,7 +46,7 @@ function MyOrders() {
                                 <h1><span className='font-bold'>Order Id</span> {order._id}</h1>
                                 <p><span className='font-bold'>Shipping Address</span> {order.address.street} {order.address.city} {order.address.state} {order.address.country} Zip- {order.address.zip}</p>
                                 <h1><span className='font-bold'>Total Price </span>${order.totalPrice}</h1>
-                                <button onClick={() => viewReceipt(order._id)}>View Receipt</button>
+                                <button onClick={() => viewReceipt(order._id)}><img className='w-10 h-10' src={PdfIcon} alt="pdficon"></img> View Receipt</button>
                                 <button onClick={() => downloadReceipt(order._id)}>Download Receipt</button>
                             </div>
 
