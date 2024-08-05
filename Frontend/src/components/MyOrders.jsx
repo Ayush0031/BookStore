@@ -51,13 +51,17 @@ function MyOrders() {
                             style={{ width: "40rem" }}>
                             <div >
                                 <div className='px-5' key={order._id}>
-                                    <h1><span className='font-bold'>Invoice Number : </span> {order._id}</h1>
-                                    <p><span className='font-bold'>Shipping Address : </span> {order.address.street} {order.address.city}
-                                        {order.address.state} {order.address.country} Zip- {order.address.zip}</p>
-                                    <p>Order Date : {formatDate(order.createdAt)}</p>
                                     <div className='flex'>
-                                        <button onClick={() => viewReceipt(order._id)}><img className='w-10 h-10' src={PdfIcon} alt="pdficon" />View Invoice</button>
-                                        <button onClick={() => downloadReceipt(order._id)}><img className='w-10 h-10' src={download} alt="pdficon" />Download </button>
+                                        <div>
+                                            <h1><span className='font-bold'>Invoice Number : </span> {order._id}</h1>
+                                            <p><span className='font-bold'>Shipping Address : </span> {order.address.street} {order.address.city}
+                                                {order.address.state} {order.address.country} Zip- {order.address.zip}</p>
+                                            <p>Order Date : {formatDate(order.createdAt)}</p>
+                                        </div>
+                                        <div className='flex'>
+                                            <button onClick={() => viewReceipt(order._id)}><img className='w-10 h-10' src={PdfIcon} alt="pdficon" />View Invoice</button>
+                                            <button onClick={() => downloadReceipt(order._id)}><img className='w-10 h-10' src={download} alt="pdficon" />Download </button>
+                                        </div>
                                     </div>
                                     <div className="mt-5">
                                         <table className="table w-full  text-left">
