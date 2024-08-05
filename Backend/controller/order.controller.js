@@ -156,7 +156,7 @@ const generateReceipt = async (req, res) => {
 
 
     order.items.forEach((item) => {
-      doc.text(`Item: ${item.name}`);
+      doc.text(`Item: ${item.bookId.name}`);
       doc.text(`Price: $${item.price}`);
       doc.text(`Quantity: ${item.quantity}`);
       doc.moveDown();

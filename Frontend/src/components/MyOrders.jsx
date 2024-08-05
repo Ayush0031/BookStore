@@ -58,19 +58,20 @@ function MyOrders() {
                                                 {order.address.state} {order.address.country} Zip- {order.address.zip}</p>
                                             <p>Order Date : {formatDate(order.createdAt)}</p>
                                         </div>
-                                        <div className='flex'>
-                                            <button onClick={() => viewReceipt(order._id)}><img className='w-10 h-10' src={PdfIcon} alt="pdficon" />View Invoice</button>
-                                            <button onClick={() => downloadReceipt(order._id)}><img className='w-10 h-10' src={download} alt="pdficon" />Download </button>
+                                        <div className='mx-12'>
+                                            
+                                            <button onClick={() => viewReceipt(order._id)}><img className='w-5 h-5' src={PdfIcon} alt="pdficon" /><span className='text-xs'>View</span></button>
+                                            <button onClick={() => downloadReceipt(order._id)}><img className='w-5 h-5 mx-3' src={download} alt="pdficon" /><span className='text-xs'>Download</span> </button>
                                         </div>
                                     </div>
                                     <div className="mt-5">
                                         <table className="table w-full  text-left">
                                             <thead>
                                                 <tr>
-                                                    <th className='px-4 py-2'>Name</th>
-                                                    <th className='px-4 py-2'>Price</th>
-                                                    <th className='px-4 py-2'>Quantity</th>
-                                                    <th className='px-4 py-2'>Total Amount</th>
+                                                    <th className='px-4 py-2 dark:bg-slate-900 dark:text-white'>Name</th>
+                                                    <th className='px-4 py-2 dark:bg-slate-900 dark:text-white'>Price</th>
+                                                    <th className='px-4 py-2 dark:bg-slate-900 dark:text-white'>Quantity</th>
+                                                    <th className='px-4 py-2 dark:bg-slate-900 dark:text-white'>Total Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
