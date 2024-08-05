@@ -99,7 +99,11 @@ function MyOrders() {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h1 className='mt-5'><span className='font-bold m-5'>Total Price </span> <span className='text-red-600 text-right'>${order.totalPrice}</span></h1>
+                                    <h1 className='mt-5 text-lg flex justify-between'>
+                                        <span className='font-bold '>Total Price </span>
+                                        <span className='text-red-600 text-right'>${order.totalPrice}</span>
+                                    </h1>
+
                                 </div>
 
                             </div>
