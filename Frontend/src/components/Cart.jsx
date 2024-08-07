@@ -70,7 +70,7 @@ function Cart() {
       <div>
         <div className='  pt-20  container mx-auto md:px-2 px-4'>
 
-          <h1 className='text-pink-500 md:text-center text-2xl md:text-5xl ' >Shopping Cart</h1>
+          <h1 className='text-pink-500 text-2xl md:text-5xl animate__animated animate__backInDown' >Shopping Cart</h1>
 
           <h1 className=' mt-2 text-green-500 md:text-2xl md:inline-flex' >Total Cart Value ${totalAmount}</h1>
           <Link className=' bg-pink-500 rounded-full px-2 mt-1 md:mx-40
@@ -98,7 +98,7 @@ function Cart() {
                     </div>
                     <div className='m-5'>
                       <select
-                        className=" dark:bg-slate-900 dark:text-white dark:border rounded" style={{ width: "100px", height: "35px" }} onChange={(e) => { setQty(e.target.value) }}
+                        className=" cursor-pointer dark:bg-slate-900 dark:text-white dark:border rounded" style={{ width: "100px", height: "35px" }} onChange={(e) => { setQty(e.target.value) }}
                       >
                         <option > {item.quantity}</option>
                         {Array.from(Array(6), (e, i) => {
@@ -111,7 +111,7 @@ function Cart() {
                       </select>
                     </div>
                     <div className='m-6'>
-                      <FaTrash onClick={() => deleteCartItem(item._id)} />
+                      <FaTrash className='cursor-pointer' onClick={() => deleteCartItem(item._id)} />
                     </div>
                   </div>
 

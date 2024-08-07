@@ -43,26 +43,31 @@ function MyOrders() {
                 <Navbar />
             </div>
             <div className='pt-20 mb-20'>
-            
-                <h1 className=' text-pink-500 md:text-center text-2xl md:text-5xl' >My Orders</h1>
+
+                <h1 className='animate__animated animate__backInDown text-pink-500 md:text-center text-2xl md:text-5xl' >My Orders</h1>
                 {
                     orders ? orders.map((order) => (
                         <div key={order._id} className="p-5 card w-92 bg-base-100 m-5 shadow-xl  dark:bg-slate-900 dark:text-white dark:border"
                             style={{ width: "70rem" }}>
                             <div >
                                 <div className='px-5' key={order._id}>
-                                    <div className='flex'>
+                                    <div className='flex justify-between'>
                                         <div>
                                             <h1><span className='font-bold'>Invoice Number : </span> {order._id}</h1>
                                             <p><span className='font-bold'>Shipping Address : </span> {order.address.street} {order.address.city}
                                                 {order.address.state} {order.address.country} Zip- {order.address.zip}</p>
                                             <p>Order Date : {formatDate(order.createdAt)}</p>
                                         </div>
-                                        <div className='mx-12'>
-                                            
-                                            <button onClick={() => viewReceipt(order._id)}><img className='w-5 h-5' src={PdfIcon} alt="pdficon" /><span className='text-xs'>View</span></button>
-                                            <button onClick={() => downloadReceipt(order._id)}><img className='w-5 h-5 mx-3' src={download} alt="pdficon" /><span className='text-xs'>Download</span> </button>
+                                        
+                                        <div className="dropdown dropdown-hover ">
+                                            <div tabIndex={0} role="button" className="btn m-1 ">Invoice</div>
+                                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                                <li> <button onClick={() => viewReceipt(order._id)}><img className='w-7 h-7' src={PdfIcon} alt="pdficon" /><span className='text-xs'>View</span></button></li>
+                                                <li><button onClick={() => downloadReceipt(order._id)}><img className='w-7 h-7' src={download} alt="pdficon" /><span className='text-xs'>Download</span> </button></li>
+                                            </ul>
                                         </div>
+                                        
+                                        
                                     </div>
                                     <div className="mt-5">
                                         <table className="table w-full  text-left">

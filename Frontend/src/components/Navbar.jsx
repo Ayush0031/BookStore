@@ -66,7 +66,7 @@ function Navbar() {
                                 {navItems}
                             </ul>
                         </div>
-                        <h2 className=" text-2xl font-bold">bookStore </h2>
+                        <h2 className="animate__animated animate__pulse text-2xl font-bold">bookStore </h2>
                         <img src='vite.svg' />
                     </div>
 
