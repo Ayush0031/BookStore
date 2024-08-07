@@ -10,9 +10,10 @@ function Cart() {
   const [cart, setCart] = useState(null);
   const [cartIsEmpty, setCartIsEmpty] = useState("false");
   const [totalAmount, setTotalAmount] = useState(0);
- 
+  const [deletingItemId, setDeletingItemId] = useState(null);
+
   const user = JSON.parse(localStorage.getItem("Users"))
-  const userId=user._id;
+  const userId = user._id;
   const { cartCount, setCartCount } = useCartContext();
   const fetchCartItems = async () => {
     if (user) {
@@ -46,16 +47,20 @@ function Cart() {
   if (cart === null && cartIsEmpty === false) {
     return <div>Loading...</div>;
   }
-  const deleteCartItem=async(id)=>{
-    await axios.post("http://localhost:4001/cart/deleteitem",{
-      userId,
-      itemId:id,
-    }).then(res=>{
-      toast.success("Item deleted successfully !");
-    }).catch(err=>{
-      toast.error("Not able to delete item !");
-    })
-    fetchCartItems();
+  const deleteCartItem = async (id) => {
+    setDeletingItemId(id);
+    setTimeout(async () => {
+      await axios.post("http://localhost:4001/cart/deleteitem", {
+        userId,
+        itemId: id,
+      }).then(res => {
+        toast.success("Item deleted successfully !");
+      }).catch(err => {
+        toast.error("Not able to delete item !");
+      })
+      fetchCartItems();
+    }, 1000);
+   
   }
 
   return (
@@ -77,8 +82,10 @@ function Cart() {
               : cart.items.map((item) => (
                 <div
                   key={item.bookId._id} style={{ maxWidth: '35rem' }}
-                  className=" card m-4 bg-base-100 shadow-xl hover:scale-105 duration-200 dark:bg-slate-900 dark:text-white dark:border "
-                >
+                  className={`card m-4 bg-base-100 shadow-xl hover:scale-105 duration-200
+                     dark:bg-slate-900 dark:text-white dark:border 
+                     ${deletingItemId === item._id ? 'animate__animated animate__fadeOut' : ''
+                }`}>
                   <div className='flex'>
                     <div className="w-40 h-40">
                       <img src={item.bookId.image} className="w-full h-full object-cover p-2 rounded-md" alt={item.bookId.name} />
@@ -87,11 +94,11 @@ function Cart() {
                       <p>{item.bookId.name}</p>
                       <p>{item.bookId.title}</p>
                       <p>${item.bookId.price}</p>
-                     
+
                     </div>
                     <div className='m-5'>
                       <select
-                        className=" dark:bg-slate-900 dark:text-white dark:border rounded" style={{width:"100px",height:"35px"}} onChange={(e) => { setQty(e.target.value) }}
+                        className=" dark:bg-slate-900 dark:text-white dark:border rounded" style={{ width: "100px", height: "35px" }} onChange={(e) => { setQty(e.target.value) }}
                       >
                         <option > {item.quantity}</option>
                         {Array.from(Array(6), (e, i) => {
@@ -104,7 +111,7 @@ function Cart() {
                       </select>
                     </div>
                     <div className='m-6'>
-                        <FaTrash onClick={()=>deleteCartItem(item._id)}/>
+                      <FaTrash onClick={() => deleteCartItem(item._id)} />
                     </div>
                   </div>
 

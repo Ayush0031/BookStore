@@ -128,8 +128,7 @@ const Payment = () => {
             <div className='pt-48 flex justify-center'>
                 <Elements stripe={stripePromise}>
 
-                    <div className=" card w-92 bg-base-100 m-5 shadow-xl hover:scale-105 
-                            duration-200 dark:bg-slate-900 dark:text-white dark:border"
+                    <div className=" card w-92 bg-base-100 m-5 shadow-xl  dark:bg-slate-900 dark:text-white dark:border"
                         style={{ width: "35rem" }}>
                         <h2 className='text-pink-500 md:text-4xl md:text-center'>Enter Details</h2>
                         <input

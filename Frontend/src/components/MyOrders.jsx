@@ -43,12 +43,12 @@ function MyOrders() {
                 <Navbar />
             </div>
             <div className='pt-20 mb-20'>
-                <h1 className='text-pink-500 md:text-center text-2xl md:text-5xl' >My Orders</h1>
+            
+                <h1 className=' text-pink-500 md:text-center text-2xl md:text-5xl' >My Orders</h1>
                 {
                     orders ? orders.map((order) => (
-                        <div key={order._id} className="p-5 card w-92 bg-base-100 m-5 shadow-xl hover:scale-105 
-                            duration-200 dark:bg-slate-900 dark:text-white dark:border"
-                            style={{ width: "40rem" }}>
+                        <div key={order._id} className="p-5 card w-92 bg-base-100 m-5 shadow-xl  dark:bg-slate-900 dark:text-white dark:border"
+                            style={{ width: "70rem" }}>
                             <div >
                                 <div className='px-5' key={order._id}>
                                     <div className='flex'>
@@ -104,9 +104,9 @@ function MyOrders() {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h1 className='mt-5 text-lg flex justify-between'>
-                                        <span className='font-bold '>Total Price </span>
-                                        <span className='text-red-600 text-right'>${order.totalPrice}</span>
+                                    <h1 className='mt-5 text-lg flex justify-end'>
+                                        <span className='font-bold '>Total Price : </span>
+                                        <span className='text-red-600 text-right '>${order.totalPrice}</span>
                                     </h1>
 
                                 </div>
